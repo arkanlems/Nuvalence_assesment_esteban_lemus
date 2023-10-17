@@ -1,4 +1,4 @@
-package assesment.rectangle.imlementation.model;
+package model;
 
 import java.awt.geom.Point2D;
 
