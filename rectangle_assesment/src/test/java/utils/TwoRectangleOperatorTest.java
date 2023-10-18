@@ -36,6 +36,18 @@ public class TwoRectangleOperatorTest {
         rectangleB = createRectangle(1,4,4,2);
         assertEquals(TwoRectangleOperator.HEIGHT_WIDTH_INTERSECTION,TwoRectangleOperator.itsIntersection(rectangleA,rectangleB));
     }
+    @Test
+    public void itsContained(){
+        rectangleA = createRectangle(1,3.5,5,1);
+        rectangleB = createRectangle(1.5,3,4,2);
+        assertEquals(TwoRectangleOperator.ITS_CONTAINMENT,TwoRectangleOperator.itsCointeinment(rectangleA,rectangleB));
+    }
+    @Test
+    public void notContained(){
+        rectangleA = createRectangle(1,3.5,5,1);
+        rectangleB = createRectangle(0.5,3,4,2);
+        assertEquals(TwoRectangleOperator.NOT_CONTAINMENT,TwoRectangleOperator.itsCointeinment(rectangleA,rectangleB));
+    }
     private Rectangle createRectangle(double pointAx, double pointAy, double pointDx, double pointDy){
         return new Rectangle(new Point2D.Double(pointAx,pointAy),new Point2D.Double(pointDx,pointDy));
     }
