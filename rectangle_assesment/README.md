@@ -22,18 +22,14 @@ To be sure all dependencies are installed:
 
 `mvn install`
 
-Compile the project:
-
-`mvn compile`
-
-Build the project:
-
-`mvn build`
-
-Run the tests, all must pass:
-
-`mvn test`
+build must succeed and all test must pass
 
 Run the project:
 
 `mvn exec:java`
+
+there's two interactions that can be made the first one using the main that provide a terminal interaction
+other path its interacting with the tests, feel free to change the values of the rectangles
+
+please go to the wiki there you're going to find the definitions I used for this project :D 
+
