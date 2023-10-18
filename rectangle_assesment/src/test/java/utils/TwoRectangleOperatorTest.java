@@ -20,8 +20,8 @@ public class TwoRectangleOperatorTest {
     }
     @Test
     public void completeIntersectionTest(){
-        rectangleA = createRectangle(1.5,4,4,0.5);
-        rectangleB = createRectangle(1,3,5,1);
+        rectangleA = createRectangle(1,3,5,1);
+        rectangleB = createRectangle(1.5,4,4,0.5);
         assertEquals(TwoRectangleOperator.COMPLETE_INTERSECTION,TwoRectangleOperator.itsIntersection(rectangleA,rectangleB));
     }
     @Test
@@ -32,8 +32,8 @@ public class TwoRectangleOperatorTest {
     }
     @Test
     public void heightWidthIntersectionTest(){
-        rectangleA = createRectangle(4,4,4,2);
-        rectangleB = createRectangle(1,3,6.5,2);
+        rectangleA = createRectangle(2,5,6,2.5);
+        rectangleB = createRectangle(1,4,4,2);
         assertEquals(TwoRectangleOperator.HEIGHT_WIDTH_INTERSECTION,TwoRectangleOperator.itsIntersection(rectangleA,rectangleB));
     }
     private Rectangle createRectangle(double pointAx, double pointAy, double pointDx, double pointDy){
