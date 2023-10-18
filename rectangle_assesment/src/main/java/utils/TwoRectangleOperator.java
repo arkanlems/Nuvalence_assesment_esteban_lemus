@@ -10,15 +10,15 @@ import java.awt.geom.Point2D;
 
 
 public abstract class TwoRectangleOperator {
-    public static final String NO_INTERSECTION = "theres no intersection between the rectangles";
-    public static final String COMPLETE_INTERSECTION = "the rectangles split each other";
-    public static final String PARTIAL_INTERSECTION = "two sides of one rectangle intersects one side of the other rectangle";
-    public static final String HEIGHT_WIDTH_INTERSECTION = "one height cross with the other width and inverse";
-    public static final String ITS_CONTAINMENT = "one rectangle its contained";
-    public static final String NOT_CONTAINMENT = "no rectangle is contained";
-    public static final String ADJACENCY_SUB_LINE = "theres adjacency and one side is contained by other";
-    public static final String ADJACENCY_PROPER = "theres two side adjacent with same size";
-    public static final String ADJACENCY_PARTIAL = "theres adjacency in aprt of the sides";
+    public static final String NO_INTERSECTION = "No intersection: theres no intersection between the rectangles";
+    public static final String COMPLETE_INTERSECTION = "Complete intersection: the rectangles split each other";
+    public static final String PARTIAL_INTERSECTION = "Partial intersection: two sides of one rectangle intersects one side of the other rectangle";
+    public static final String HEIGHT_WIDTH_INTERSECTION = "Heght Width intersection: one height cross with the other width and inverse";
+    public static final String ITS_CONTAINMENT = "Contained: one rectangle its contained";
+    public static final String NOT_CONTAINMENT = "No Containment: no rectangle is contained";
+    public static final String ADJACENCY_SUB_LINE = "Subline: theres adjacency and one side is contained by other";
+    public static final String ADJACENCY_PROPER = "Proper: theres two side adjacent with same size";
+    public static final String ADJACENCY_PARTIAL = "Partial: theres adjacency in aprt of the sides";
     public static final String NO_ADJACENCY = "no adjacency";
 
     private TwoRectangleOperator(){
