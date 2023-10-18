@@ -3,9 +3,6 @@ package model;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.awt.geom.Point2D;
 
@@ -13,11 +10,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 
-@RunWith(MockitoJUnitRunner.class)
 public class RectangleTest {
-    @Mock
+
     private Point2D pointA;
-    @Mock
+
     private Point2D pointD;
 
     private Rectangle rectangle;
