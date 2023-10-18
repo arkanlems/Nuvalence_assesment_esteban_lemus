@@ -23,7 +23,7 @@ public class Rectangle {
     }
     private void calculateCBPoints(){
         this.pointB = new Point2D.Double(this.pointD.getX(),this.pointA.getY());
-        this.pointC = new Point2D.Double(this.pointA.getX(),this.pointB.getY());
+        this.pointC = new Point2D.Double(this.pointA.getX(),this.pointD.getY());
     }
     private void calculateHeightWidth(){
         this.height = this.pointA.distance(this.pointC);
