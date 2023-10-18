@@ -16,11 +16,87 @@ public abstract class TwoRectangleOperator {
     public static final String HEIGHT_WIDTH_INTERSECTION = "one height cross with the other width and inverse";
     public static final String ITS_CONTAINMENT = "one rectangle its contained";
     public static final String NOT_CONTAINMENT = "no rectangle is contained";
+    public static final String ADJACENCY_SUB_LINE = "theres adjacency and one side is contained by other";
+    public static final String ADJACENCY_PROPER = "theres two side adjacent with same size";
+    public static final String ADJACENCY_PARTIAL = "theres adjacency in aprt of the sides";
+    public static final String NO_ADJACENCY = "no adjacency";
 
     private TwoRectangleOperator(){
         throw new IllegalStateException("Utility class");
     }
+    public static String itsAdjecent(Rectangle rectangle1, Rectangle rectangle2){
 
+        if(areAdjacentVerticallSides(rectangle1.getPointB(),rectangle1.getPointD(),
+                rectangle2.getPointA(),rectangle2.getPointC())) {
+            return kindAdjancentVertical(rectangle1.getPointB(),rectangle1.getPointD(),
+                    rectangle2.getPointA(),rectangle2.getPointC());
+        }
+
+        if(areAdjacentVerticallSides(rectangle1.getPointA(),rectangle1.getPointC(),
+                rectangle2.getPointB(),rectangle2.getPointD())) {
+            return kindAdjancentVertical(rectangle1.getPointA(),rectangle1.getPointC(),
+                    rectangle2.getPointB(),rectangle2.getPointD());
+        }
+
+        if(areAdjacentHorizontalSides(rectangle1.getPointA(),rectangle1.getPointB(),
+                rectangle2.getPointC(),rectangle2.getPointD())) {
+            return kindAdjancentHorizontal(rectangle1.getPointA(),rectangle1.getPointB(),
+                    rectangle2.getPointC(),rectangle2.getPointD());
+        }
+
+        if(areAdjacentHorizontalSides(rectangle1.getPointC(),rectangle1.getPointD(),
+                rectangle2.getPointA(),rectangle2.getPointB())) {
+            return kindAdjancentHorizontal(rectangle1.getPointC(),rectangle1.getPointD(),
+                    rectangle2.getPointA(),rectangle2.getPointB());
+        }
+        return NO_ADJACENCY;
+    }
+    private static String kindAdjancentVertical(Point2D r1P1,Point2D r1P2,Point2D r2P1,Point2D r2P2){
+        if(r1P1.getY()==r2P1.getY()&&r1P2.getY()==r2P2.getY()){
+            return ADJACENCY_PROPER;
+        }
+        if(r1P1.getY()>r2P1.getY()&&r1P2.getY()<r2P2.getY()){
+            return ADJACENCY_SUB_LINE;
+        }
+        if(r2P1.getY()>r1P1.getY()&&r2P2.getY()<r1P2.getY()){
+            return ADJACENCY_SUB_LINE;
+        }
+        return ADJACENCY_PARTIAL;
+    }
+    private static String kindAdjancentHorizontal(Point2D r1P1,Point2D r1P2,Point2D r2P1,Point2D r2P2){
+        if(r1P1.getX()==r2P1.getX()&&r1P2.getX()==r2P2.getX()){
+            return ADJACENCY_PROPER;
+        }
+        if(r1P1.getX()>r2P1.getX()&&r1P2.getX()<r2P2.getX()){
+            return ADJACENCY_SUB_LINE;
+        }
+        if(r1P1.getX()>r2P1.getX()&&r1P2.getX()<r2P2.getX()){
+            return ADJACENCY_SUB_LINE;
+        }
+        return ADJACENCY_PARTIAL;
+    }
+    private static boolean areAdjacentVerticallSides(Point2D r1P1,Point2D r1P2,Point2D r2P1,Point2D r2P2){
+        if(r1P1.getX()==r2P1.getX()){
+            if(r1P1.getY()<=r2P1.getY()&&r1P1.getY()>=r2P2.getY()){
+                return true;
+            }
+            if(r2P1.getY()<=r1P1.getY()&&r2P2.getY()>=r1P2.getY()){
+                return true;
+            }
+        }
+        return false;
+    }
+    private static boolean areAdjacentHorizontalSides(Point2D r1P1,Point2D r1P2,Point2D r2P1,Point2D r2P2){
+        if(r1P1.getY()==r1P2.getY()){
+            if(r1P1.getX()<=r2P1.getX()&&r1P1.getX()>=r2P2.getX()){
+                return true;
+            }
+            if(r1P2.getX()<=r2P1.getX()&&r1P2.getX()>=r2P2.getX()){
+                return true;
+            }
+        }
+        return false;
+    }
     /*
     * this function take two points of each rectangle the A and the D point to be exact with this information is in off
     * to say if one rectangle is contained
