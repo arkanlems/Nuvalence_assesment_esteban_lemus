@@ -14,9 +14,32 @@ public abstract class TwoRectangleOperator {
     public static final String COMPLETE_INTERSECTION = "the rectangles split each other";
     public static final String PARTIAL_INTERSECTION = "two sides of one rectangle intersects one side of the other rectangle";
     public static final String HEIGHT_WIDTH_INTERSECTION = "one height cross with the other width and inverse";
+    public static final String ITS_CONTAINMENT = "one rectangle its contained";
+    public static final String NOT_CONTAINMENT = "no rectangle is contained";
 
     private TwoRectangleOperator(){
         throw new IllegalStateException("Utility class");
+    }
+
+    /*
+    * this function take two points of each rectangle the A and the D point to be exact with this information is in off
+    * to say if one rectangle is contained
+    * @param rectangle1 represents the first rectangle
+    * @param rectangle 2 represents the second rectangle
+    * @return return the static value that represent the kind of containment
+    * */
+    public static String itsCointeinment(Rectangle rectangle1, Rectangle rectangle2){
+        if(rectangle1.getPointA().getX()<rectangle2.getPointA().getX()&&
+                rectangle1.getPointA().getY()>rectangle2.getPointA().getY()&&
+                rectangle1.getPointD().getX()>rectangle2.getPointD().getX()&&
+                rectangle1.getPointD().getY()<rectangle2.getPointD().getY()
+        )return ITS_CONTAINMENT;
+        if(rectangle2.getPointA().getX()<rectangle1.getPointA().getX()&&
+                rectangle2.getPointA().getY()>rectangle1.getPointA().getY()&&
+                rectangle2.getPointD().getX()>rectangle1.getPointD().getX()&&
+                rectangle2.getPointD().getY()<rectangle1.getPointD().getY()
+        )return ITS_CONTAINMENT;
+        return NOT_CONTAINMENT;
     }
     /*
     * this function count the number of intersections between the different sides and depending on the result it says
